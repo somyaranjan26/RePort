@@ -157,7 +157,7 @@ def viewTaskList(request):
     
     except:
         userName = database.child('users').child(uId).child('details').child('name').get(idtoken).val()
-        para = {"name": userName, "message": "👀 Seems your Task 📝 is Empty 📂"} 
+        para = {"name": userName, "message": "👀 Seems your Task List 📝 is Empty 📂"} 
         return render(request, "home.html", para)        
     
     
