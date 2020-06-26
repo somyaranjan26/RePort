@@ -193,32 +193,38 @@ def deleteTask(request):
         timestamps = database.child("users").child(uId).child("reports").shallow().get(idtoken).val()
         timeList = []
         
-        taskCount = 0
-        for i in timestamps:
-            taskCount = taskCount + 1
-            timeList.append(i)
-        
-        timeList.sort(reverse=True)
+        if timestamps:
+            taskCount = 0
+            for i in timestamps:
+                taskCount = taskCount + 1
+                timeList.append(i)
+            
+            timeList.sort(reverse=True)
 
-        taskTitle = []
-        aboutTask = []
-        for i in timeList:
-            taskName = database.child("users").child(uId).child("reports").child(i).child("taskTitle").get(idtoken).val() 
-            TaskDesc = database.child("users").child(uId).child("reports").child(i).child("aboutTask").get(idtoken).val()
-            taskTitle.append(taskName)
-            aboutTask.append(TaskDesc)
+            taskTitle = []
+            aboutTask = []
+            for i in timeList:
+                taskName = database.child("users").child(uId).child("reports").child(i).child("taskTitle").get(idtoken).val() 
+                TaskDesc = database.child("users").child(uId).child("reports").child(i).child("aboutTask").get(idtoken).val()
+                taskTitle.append(taskName)
+                aboutTask.append(TaskDesc)
+            
+            taskDate = []
+            for i in timeList:
+                i = float(i)                                                        # typecast string to float 
+                date = datetime.fromtimestamp(i).strftime("%H:%M %p, %d-%m-%Y")     # extracting date and time from float
+                taskDate.append(date)
+            
+            data = zip(timeList, taskDate, taskTitle, aboutTask)
+            userName = database.child('users').child(uId).child('details').child('name').get(idtoken).val()
         
-        taskDate = []
-        for i in timeList:
-            i = float(i)                                                        # typecast string to float 
-            date = datetime.fromtimestamp(i).strftime("%H:%M %p, %d-%m-%Y")     # extracting date and time from float
-            taskDate.append(date)
-        
-        data = zip(timeList, taskDate, taskTitle, aboutTask)
-        userName = database.child('users').child(uId).child('details').child('name').get(idtoken).val()
-    
-        para = {"name": userName, "data": data, "count": taskCount}
-        return render(request, "viewTaskList.html", para)
+            para = {"name": userName, "data": data, "count": taskCount}
+            return render(request, "viewTaskList.html", para)
+        else:
+            userName = database.child('users').child(uId).child('details').child('name').get(idtoken).val()
+            para = {"name": userName, "message": "👀 Seems your Task List 📝 is Empty 📂"} 
+            return render(request, "home.html", para)
+
     except KeyError:
         para = {"message": "👀 User is logged out, Please Log In again!"}  # if creadentials are 
         return render(request, "logIn.html", para)         # incorrect, redirect to sign in page
