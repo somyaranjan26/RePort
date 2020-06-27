@@ -7,14 +7,7 @@ import time
 import pytz
 
 config = {
-    'apiKey': "AIzaSyCdKNw3lcRLvMRsTQqJ9cd7bhApveulEPY",
-    'authDomain': "report-f936d.firebaseapp.com",
-    'databaseURL': "https://report-f936d.firebaseio.com",
-    'projectId': "report-f936d",
-    'storageBucket': "report-f936d.appspot.com",
-    'messagingSenderId': "6064393562",
-    'appId': "1:6064393562:web:e936a426e5424231063763",
-    'measurementId': "G-FLLCJV8GE8"
+    # paste your firebase credentials here.
 }
 
 firebase = pyrebase.initialize_app(config);    # configuring firebase using pyrebase
@@ -22,11 +15,11 @@ authentication = firebase.auth();              # getting user authentication dat
 database = firebase.database();
 
 def index(request):
-    return render(request, "index.html")
+    return render(request, "index.html")       # Landing Page
 
 
 def logIn(request):
-    return render(request, "logIn.html")      # LogIn page 
+    return render(request, "logIn.html")       # LogIn page 
 
 
 def signIn(request):
@@ -38,7 +31,6 @@ def newUser(request):
     email = request.POST.get('email')
     password = request.POST.get('password')
 
-    
     # try:
     user = authentication.create_user_with_email_and_password(email, password)  # Adding data to 
     # except:
