@@ -73,7 +73,7 @@ def home(request):
     userName = database.child('users').child(uId).child('details').child('name').get(idtoken).val()
 
     para = { "name": userName}
-    return render(request, "Home.html", para)
+    return render(request, "home.html", para)
 
 
 def logOut(request):
