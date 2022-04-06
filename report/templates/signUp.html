@@ -48,7 +48,7 @@
   <form class="form-signin" action="/signUp/" method="POST">
     {% csrf_token %}
     <!-- <img class="mb-4" src="" alt="" width="72" height="72"> -->
-    <h1 class="heading mb-4" type="button" onclick="location.href='{% url "Index" %}'"> RePort </h1>
+    <h1 class="btn heading mb-4" onclick="location.href='{% url "Index" %}'"> RePort </h1>
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     
     <label for="inputName" class="sr-only">Email address</label>
@@ -56,13 +56,14 @@
     <label for="inputName" class="sr-only">Name</label>
     <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
-    <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password (atleast 6 characters)" required>
  
     <button class="btn btn-lg btn-secondary btn-block" type="submit">Sign In</button>
 
-    <p class="logIn"><a type="button" class="btn-link" onclick="location.href='{% url "LogIn" %}'">Already have an account?</a> </p>
+    <p class="logIn">
+      <a class="btn btn-link pointer-event" onclick="location.href='{% url "LogIn" %}'">Already have an account?</a> </p>
     <footer class="my-5 pt-5 text-muted text-center text-small">
-      <p class="mb-1">&copy; 2020 RePort</p>
+      <p class="mb-1">&copy; 2022 RePort</p>
       <ul class="list-inline">
         <li class="list-inline-item"><a href="mailto:somyaranjanmac1@gmail.com">Somyaranjan Rout</a></li>
       </ul>

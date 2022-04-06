@@ -48,7 +48,7 @@
   <form class="form-signin" action="/home/" method="POST">
     {% csrf_token %}
     <!-- <img class="mb-4" src="" alt="" width="72" height="72"> -->
-    <h1 class="heading mb-4" type="button" onclick="location.href='{% url "Index" %}'"> RePort </h1>
+    <h1 class="btn heading mb-4" onclick="location.href='{% url "Index" %}'"> RePort </h1>
     <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
     
     <label for="inputEmail" class="sr-only">Email address</label>
@@ -58,9 +58,10 @@
  
     <button class="btn btn-lg btn-secondary btn-block" type="submit">Log In</button>
 
-    <p class="logIn"><a type="button" class="btn-link" onclick="location.href='{% url "SignIn" %}'">Create a new account.</a>
+    <p class="logIn">
+      <a class="btn btn-link" onclick="location.href='{% url "SignIn" %}'">Create a new account.</a>
       <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2020 RePort</p>
+        <p class="mb-1">&copy; 2022 RePort</p>
         <ul class="list-inline">
           <li class="list-inline-item"><a href="mailto:somyaranjanmac1@gmail.com">Somyaranjan Rout</a></li>
         </ul>

@@ -75,11 +75,11 @@
     <div class="py-5 text-center">
       <!-- <img class="d-block mx-auto mb-4" src="#" alt="" width="72" height="72"> -->
       <a class="navbar-brand">
-        <h1 type="button">RePort</h1>
+        <h1>RePort</h1>
       </a>
     </div>
     <nav class="navbar navbar-expand navbar-light bg-light">
-      <a class="navbar-brand text-secondary" type="button">
+      <a class="navbar-brand text-secondary">
         <h4>View Task</h4>
       </a>
 
@@ -94,7 +94,7 @@
           </li>
         </ul>
         <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle h4 text-primary" type="button" id="dropdown01" data-toggle="dropdown"
+          <a class="nav-link dropdown-toggle h4 text-primary" id="dropdown01" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">{{ name }}</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" onclick="location.href='{% url "LogOut" %}'">Log Out
@@ -131,7 +131,7 @@
             <div class="col-lg-3">
               <span class="text-muted align-middle ">{{ taskDate }}</span>
             </div>
-            <a class="mt-2 mx-4 text-primary" href="/deleteTask/?time={{timeList}}" type="button">
+            <a class="mt-2 mx-4 text-primary" href="/deleteTask/?time={{timeList}}">
               <svg class="bi bi-trash" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -146,11 +146,10 @@
       </div>
     </div>
 
-    <a type="button" class="btn btn-primary h3 text-light float-right"
-      onclick="location.href='{% url "AddNewTask" %}'">Add Task</a>
+    <a class="btn btn-primary h3 text-light float-right" onclick="location.href='{% url "AddNewTask" %}'">Add Task</a>
 
     <footer class="my-5 pt-5 text-muted text-center text-small">
-      <p class="mb-1">&copy; 2020 RePort</p>
+      <p class="mb-1">&copy; 2022 RePort</p>
       <ul class="list-inline">
         <li class="list-inline-item"><a href="https://www.linkedin.com/in/somyaranjanrout/">Somyaranjan Rout</a></li>
       </ul>

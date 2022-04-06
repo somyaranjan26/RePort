@@ -40,11 +40,11 @@
 
 <body class="text-center">
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="masthead mb-auto">
+    <header class="masthead">
       <div class="inner">
         <h3 class="masthead-brand">RePort</h3>
         <nav class="nav nav-masthead justify-content-center">
-          <a class="nav-link active" href="#">Home</a>
+          <a class="nav-link active" onclick="location.href='{% url "Index" %}'">Home</a>
         </nav>
       </div>
     </header>
@@ -59,8 +59,8 @@
       </p>
     </main>
 
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-      <p class="mb-1">&copy; 2020 RePort</p>
+    <footer class="my-5 mt-auto pt-5 text-muted text-center text-small">
+      <p class="mb-1">&copy; 2022 RePort</p>
       <ul class="list-inline">
         <li class="list-inline-item"><a href="https://www.linkedin.com/in/somyaranjanrout/">Somyaranjan Rout</a></li>
       </ul>
