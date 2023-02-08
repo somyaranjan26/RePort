@@ -3,7 +3,7 @@ backports.zoneinfo==0.2.1
 certifi==2021.10.8
 cffi==1.15.0
 charset-normalizer==2.0.12
-cryptography==36.0.2
+cryptography==39.0.1
 Deprecated==1.2.13
 dj-database-url==0.5.0
 Django==4.0.3
